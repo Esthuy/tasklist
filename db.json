@@ -1,13 +1,22 @@
 {
-  "tasks" : [
-      {
-          "id" : 1, 
-          "entitled" : "créer un projet", 
-          "description" : null, 
-          "creationDate" : "2022-03-11T10:49:00", 
-          "deadLine" : null, 
-          "endDate" : null, 
-          "priority" : "medium"
-      }
+  "tasks": [
+    {
+      "id": 1,
+      "entitled": "créer un projet",
+      "description": null,
+      "creationDate": "2022-03-11T10:49:00",
+      "deadLine": null,
+      "endDate": null,
+      "priority": "medium"
+    },
+    {
+      "entitled": "Ameliorer l'affichage du form",
+      "description": "-erreur si mauvaise entrée ",
+      "creationDate": "2022-03-11",
+      "deadLine": "2022-03-17",
+      "endDate": null,
+      "priority": "medium",
+      "id": 2
+    }
   ]
 }
