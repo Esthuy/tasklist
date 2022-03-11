@@ -9,15 +9,15 @@
     
         <p>Intitulé : {{task.entitled}}</p>
 
-        <p>Déscription : {{task.description}} </p>
+        <p>Déscription : {{task.description | null }} </p>
 
         <p>Date de création: {{task.creationDate}}</p>
 
-        <p>DeadLine : {{task.deadLine}}</p>
+        <p>DeadLine : {{task.deadLine | null }}</p>
 
-        <p>Date de fin : {{task.endDate}}</p>
+        <p>Date de fin : {{task.endDate | null }}</p>
         
-        <p>Priorité : {{task.priority}}</p>
+        <p>Priorité : {{task.priority | priority}}</p>
     
 </div>
 

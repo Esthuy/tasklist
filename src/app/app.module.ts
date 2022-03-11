@@ -8,13 +8,17 @@ import { DisplayTasksComponent } from './component/task/display-tasks/display-ta
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DisplayOneTaskComponent } from './component/task/display-one-task/display-one-task.component';
+import { PriorityPipe } from './pipe/priority.pipe';
+import { NullPipe } from './pipe/null.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateTaskComponent,
     DisplayTasksComponent,
-    DisplayOneTaskComponent
+    DisplayOneTaskComponent,
+    PriorityPipe,
+    NullPipe
   ],
   imports: [
     BrowserModule,
