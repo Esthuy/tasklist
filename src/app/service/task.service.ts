@@ -15,6 +15,11 @@ export class TaskService {
   private readonly url_base = "http://localhost:3000/tasks"; 
 
   getTasks() : Observable<Task[]>{
-    return this.client.get<Task[]>(this.url_base)
+    return this.client.get<Task[]>(this.url_base);
+  }
+
+  createTask(task: Task){
+    console.log('on passe par create task');
+    return this.client.post<Task>(this.url_base, task);  
   }
 }

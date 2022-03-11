@@ -1,1 +1,51 @@
-<p>create-task works!</p>
+<h4>Formulaire d'insertion des tâches</h4>
+
+<form [formGroup]="taskInsertForm" (ngSubmit)="onSubmit()">
+
+    <div>
+        <label for="task-entitled">Intitulé</label><br>
+        <input type="text" id="task-entitled" formControlName="entitled">
+    </div>
+
+    <br>
+    <div>
+        <label for="task-description">Déscription</label><br>
+        <input type="text" id="task-description" formControlName="description">
+    </div>
+    <br>
+
+    <div>
+        <label for="task-creationDate">Date de création</label><br>
+        <input type="date" id="task-creationDate" formControlName="creationDate">
+    </div>
+    <br>
+
+    <div>
+        <label for="task-deadLine">DeadLine</label><br>
+        <input type="date" id="task-deadLine" formControlName="deadLine">
+    </div>
+    <br>
+
+    <div>
+        <label for="task-endDate">Date de fin</label><br>
+        <input type="date" id="task-endDate" formControlName="endDate">
+    </div>
+    <br>
+
+    <div>
+        <label for="task-priority">Priorité</label><br>
+        <select name="task-priority" id="task-priority" formControlName="priority">
+            <option value="low">faible</option>
+            <option value="medium">moyenne</option>
+            <option value="high">forte</option>
+        </select>
+    </div>
+    
+
+<br><br>
+
+    <button type="submit">Insérer</button>
+    <br>
+
+</form>
+
