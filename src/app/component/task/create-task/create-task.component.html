@@ -6,12 +6,19 @@
         <label for="task-entitled">Intitulé</label><br>
         <input type="text" id="task-entitled" formControlName="entitled">
         <p *ngIf="taskInsertForm.controls['entitled'].errors?.['required']" class="errors">Ce champ est obligatoire </p>
+        <p *ngIf="taskInsertForm.controls['entitled'].errors?.['notBlank']" class="errors"> 
+            {{ taskInsertForm.controls['entitled'].errors?.['notBlank'].message }} 
+        </p>
     </div>
+  
 
     <br>
     <div>
         <label for="task-description">Déscription</label><br>
         <input type="text" id="task-description" formControlName="description">
+        <p *ngIf="taskInsertForm.controls['description'].errors?.['notBlank']" class="errors"> 
+            {{ taskInsertForm.controls['description'].errors?.['notBlank'].message }} 
+        </p>
     </div>
     <br>
 
