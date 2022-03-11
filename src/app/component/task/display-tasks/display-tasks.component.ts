@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Task } from 'src/app/model/task.model';
 import { TaskService } from 'src/app/service/task.service';
 
@@ -11,7 +12,7 @@ export class DisplayTasksComponent implements OnInit {
 
   taskList : Task[] = []; 
 
-  constructor(private service : TaskService) {
+  constructor(private service : TaskService, private router : Router) {
     this.getTasks(); 
   }
 
@@ -25,6 +26,10 @@ export class DisplayTasksComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  displayTask(task : Task){
+    this.router.navigateByUrl('/task')
   }
 
 }

@@ -1,0 +1,21 @@
+<ng-template #loading>
+    <div>
+        <p>loading...</p>
+    </div>
+</ng-template>
+
+<div *ngIf="task; else loading">
+    <h3>Detail de la tache d'id: {{task.id}}</h3>
+    <dl>
+        <dt>Intitulé</dt>
+        <dd>{{task.entitled}}</dd>
+    
+        <dt>Déscription</dt>
+        <dd>{{task.description}}</dd>
+        
+        <dt>Priorité</dt>
+        <dd>{{task.priority}}</dd>
+    </dl>
+</div>
+
+<p>à continuer</p>

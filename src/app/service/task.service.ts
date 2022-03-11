@@ -18,8 +18,13 @@ export class TaskService {
     return this.client.get<Task[]>(this.url_base);
   }
 
+  getOneTask(id : number){
+    console.log('on passe par get one task');
+    return this.client.get<Task>(this.url_base+'/'+id)
+  }
+
   createTask(task: Task){
-    console.log('on passe par create task');
     return this.client.post<Task>(this.url_base, task);  
   }
+
 }

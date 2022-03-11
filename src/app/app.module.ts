@@ -7,12 +7,14 @@ import { CreateTaskComponent } from './component/task/create-task/create-task.co
 import { DisplayTasksComponent } from './component/task/display-tasks/display-tasks.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DisplayOneTaskComponent } from './component/task/display-one-task/display-one-task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateTaskComponent,
-    DisplayTasksComponent
+    DisplayTasksComponent,
+    DisplayOneTaskComponent
   ],
   imports: [
     BrowserModule,
