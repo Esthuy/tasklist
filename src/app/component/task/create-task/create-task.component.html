@@ -5,6 +5,7 @@
     <div>
         <label for="task-entitled">Intitulé</label><br>
         <input type="text" id="task-entitled" formControlName="entitled">
+        <p *ngIf="taskInsertForm.controls['entitled'].errors?.['required']" class="errors">Ce champ est obligatoire </p>
     </div>
 
     <br>
@@ -17,6 +18,7 @@
     <div>
         <label for="task-creationDate">Date de création</label><br>
         <input type="date" id="task-creationDate" formControlName="creationDate">
+        <p *ngIf="taskInsertForm.controls['creationDate'].errors?.['required']" class="errors">Ce champ est obligatoire </p>
     </div>
     <br>
 
@@ -39,6 +41,7 @@
             <option value="medium">moyenne</option>
             <option value="high">forte</option>
         </select>
+        <p *ngIf="taskInsertForm.controls['priority'].errors?.['required']" class="errors">Ce champ est obligatoire </p>
     </div>
     
 
