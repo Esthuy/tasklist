@@ -17,7 +17,7 @@ export class DisplayOneTaskComponent implements OnInit {
   constructor(  
     route: ActivatedRoute,
     private service : TaskService,
-    router: Router) {
+    private router: Router) {
 
     const param_id = route.snapshot.paramMap.get('id');
     this.id = param_id ? parseInt(param_id) : -1;
@@ -26,7 +26,20 @@ export class DisplayOneTaskComponent implements OnInit {
       service.getOneTask(this.id).subscribe({
         next: (task) => this.task = task,
         error: (err) => router.navigateByUrl('/taskList')
-      }); }
+      }); 
+    }
+
+
+  deleteTask(task : Task){
+    if(confirm("Êtes vous sur de vouloir supprimer la tâche ?")){
+      this.service.deleteTask(task.id).subscribe({
+        next: () => this.router.navigateByUrl('/taskList')
+      }); 
+      
+    } ;
+  }
+
+
 
   ngOnInit(): void {
   }

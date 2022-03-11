@@ -21,7 +21,6 @@ export class DisplayTasksComponent implements OnInit {
     .subscribe({
       next: tasks => this.taskList = tasks,
       error: err => alert("echec"),
-      complete: () => console.log("get tasks - completed")
     });
   }
 

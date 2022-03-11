@@ -26,4 +26,8 @@ export class TaskService {
     return this.client.post<Task>(this.url_base, task);  
   }
 
+  deleteTask(id : number){
+    return this.client.delete<Task>(this.url_base+'/'+id); 
+  }
+
 }
