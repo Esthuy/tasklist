@@ -32,6 +32,7 @@ export class CreateTaskComponent implements OnInit {
       this.taskToAdd = this.taskInsertForm.value; 
       this.service.createTask(this.taskToAdd).subscribe(); 
       this.taskInsertForm.reset(); 
+      this.service.getTasks(); 
       this.router.navigateByUrl('/taskList'); 
     }
   }; 

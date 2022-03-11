@@ -1,0 +1,63 @@
+<h4>Formulaire de modification de la tâche "{{taskToModify.entitled}}"</h4>
+
+<form [formGroup]="taskModifyForm" (ngSubmit)="onSubmit()">
+
+    <div>
+        <label for="task-entitled">Intitulé</label><br>
+        <input type="text" id="task-entitled" formControlName="entitled">
+        <p *ngIf="taskModifyForm.controls['entitled'].errors?.['required']" class="errors">Ce champ est obligatoire </p>
+        <p *ngIf="taskModifyForm.controls['entitled'].errors?.['notBlank']" class="errors"> 
+            {{ taskModifyForm.controls['entitled'].errors?.['notBlank'].message }} 
+        </p>
+    </div>
+  
+
+    <br>
+    <div>
+        <label for="task-description">Déscription</label><br>
+        <input type="text" id="task-description" formControlName="description">
+        <p *ngIf="taskModifyForm.controls['description'].errors?.['notBlank']" class="errors"> 
+            {{ taskModifyForm.controls['description'].errors?.['notBlank'].message }} 
+        </p>
+    </div>
+    <br>
+
+    <div>
+        <label for="task-creationDate">Date de création</label><br>
+        <input type="date" id="task-creationDate" formControlName="creationDate">
+        <p *ngIf="taskModifyForm.controls['creationDate'].errors?.['required']" class="errors">Ce champ est obligatoire </p>
+    </div>
+    <br>
+
+    <div>
+        <label for="task-deadLine">DeadLine</label><br>
+        <input type="date" id="task-deadLine" formControlName="deadLine">
+    </div>
+    <br>
+
+    <div>
+        <label for="task-endDate">Date de fin</label><br>
+        <input type="date" id="task-endDate" formControlName="endDate">
+        <p *ngIf="taskModifyForm.errors?.['startBeforeEnd']" class="errors"> 
+            {{ taskModifyForm.errors?.['startBeforeEnd'].message }} 
+        </p>
+    </div>
+    <br>
+
+    <div>
+        <label for="task-priority">Priorité</label><br>
+        <select name="task-priority" id="task-priority" formControlName="priority">
+            <option value="low">faible</option>
+            <option value="medium">moyenne</option>
+            <option value="high">forte</option>
+        </select>
+        <p *ngIf="taskModifyForm.controls['priority'].errors?.['required']" class="errors">Ce champ est obligatoire </p>
+    </div>
+    
+
+<br><br>
+
+    <button type="submit">Insérer</button>
+    <br>
+
+</form>

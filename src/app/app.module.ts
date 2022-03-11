@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DisplayOneTaskComponent } from './component/task/display-one-task/display-one-task.component';
 import { PriorityPipe } from './pipe/priority.pipe';
 import { NullPipe } from './pipe/null.pipe';
+import { ModifyTaskComponent } from './component/task/modify-task/modify-task.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NullPipe } from './pipe/null.pipe';
     DisplayTasksComponent,
     DisplayOneTaskComponent,
     PriorityPipe,
-    NullPipe
+    NullPipe,
+    ModifyTaskComponent
   ],
   imports: [
     BrowserModule,

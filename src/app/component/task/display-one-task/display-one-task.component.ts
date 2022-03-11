@@ -35,8 +35,12 @@ export class DisplayOneTaskComponent implements OnInit {
       this.service.deleteTask(task.id).subscribe({
         next: () => this.router.navigateByUrl('/taskList')
       }); 
-      
     } ;
+  }
+
+  modifyTask(task : Task){
+    this.service.sendTask(task); 
+    this.router.navigateByUrl('/modifyTask'); 
   }
 
 

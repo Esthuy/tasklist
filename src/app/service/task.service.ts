@@ -8,7 +8,9 @@ import { Task } from '../model/task.model';
 })
 export class TaskService {
 
-  taskList : Task[] = []; 
+  private taskList : Task[] = []; 
+
+  private taskToModify! : Task; 
 
   constructor(private client: HttpClient) { }
 
@@ -28,6 +30,14 @@ export class TaskService {
 
   deleteTask(id : number){
     return this.client.delete<Task>(this.url_base+'/'+id); 
+  }
+
+  sendTask(task : Task){
+    this.taskToModify = task; 
+  }
+
+  receiveTask(){
+    return this.taskToModify; 
   }
 
 }
