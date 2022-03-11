@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { TASK_INSERT_FORM } from 'src/app/form/task.form';
+import { startBeforeEnd, TASK_INSERT_FORM } from 'src/app/form/task.form';
 import { Task } from 'src/app/model/task.model';
 import { TaskService } from 'src/app/service/task.service';
 
@@ -16,7 +16,9 @@ export class CreateTaskComponent implements OnInit {
 
   constructor(private service : TaskService, private router : Router, builder: FormBuilder) { 
 
-    this.taskInsertForm = builder.group(TASK_INSERT_FORM);
+    this.taskInsertForm = builder.group(TASK_INSERT_FORM, {
+      validators : [startBeforeEnd]
+  }); 
   }
 
   taskToAdd! : Task; 

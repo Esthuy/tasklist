@@ -19,3 +19,16 @@ function notBlank(control : AbstractControl) : ValidationErrors | null {
         notBlank: {message : 'Ne peut pas être vide'}     
     }
 }
+
+export function startBeforeEnd(control: AbstractControl) : ValidationErrors | null {
+    const start = control.value.creationDate; 
+    const end = control.value.endDate; 
+
+    if(end == null || start < end){
+        return null; 
+    }
+    return {startBeforeEnd: {
+        message: 'la date de début doit être avant la date de fin'
+        }
+    }
+}

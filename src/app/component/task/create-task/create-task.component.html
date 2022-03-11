@@ -38,6 +38,9 @@
     <div>
         <label for="task-endDate">Date de fin</label><br>
         <input type="date" id="task-endDate" formControlName="endDate">
+        <p *ngIf="taskInsertForm.errors?.['startBeforeEnd']" class="errors"> 
+            {{ taskInsertForm.errors?.['startBeforeEnd'].message }} 
+        </p>
     </div>
     <br>
 
