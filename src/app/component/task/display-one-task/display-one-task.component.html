@@ -5,17 +5,19 @@
 </ng-template>
 
 <div *ngIf="task; else loading">
-    <h3>Detail de la tache d'id: {{task.id}}</h3>
-    <dl>
-        <dt>Intitulé</dt>
-        <dd>{{task.entitled}}</dd>
+    <h3>Detail de la tache "{{task.entitled}}"</h3>
     
-        <dt>Déscription</dt>
-        <dd>{{task.description}}</dd>
+        <p>Intitulé : {{task.entitled}}</p>
+
+        <p>Déscription : {{task.description}} </p>
+
+        <p>Date de création: {{task.creationDate}}</p>
+
+        <p>DeadLine : {{task.deadLine}}</p>
+
+        <p>Date de fin : {{task.endDate}}</p>
         
-        <dt>Priorité</dt>
-        <dd>{{task.priority}}</dd>
-    </dl>
+        <p>Priorité : {{task.priority}}</p>
+    
 </div>
 
-<p>à continuer</p>

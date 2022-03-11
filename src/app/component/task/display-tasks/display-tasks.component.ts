@@ -29,7 +29,7 @@ export class DisplayTasksComponent implements OnInit {
   }
 
   displayTask(task : Task){
-    this.router.navigateByUrl('/task')
+    this.router.navigate(['task', task.id]);
   }
 
 }

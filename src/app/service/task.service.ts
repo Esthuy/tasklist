@@ -19,7 +19,6 @@ export class TaskService {
   }
 
   getOneTask(id : number){
-    console.log('on passe par get one task');
     return this.client.get<Task>(this.url_base+'/'+id)
   }
 
