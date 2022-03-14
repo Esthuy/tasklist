@@ -11,9 +11,18 @@ import { TaskService } from 'src/app/service/task.service';
 export class DisplayTasksComponent implements OnInit {
 
   taskList : Task[] = []; 
+ 
 
   constructor(private service : TaskService, private router : Router) {
     this.getTasks(); 
+  }
+
+  ascendingOrder(){
+    this.taskList = this.taskList.sort((task1, task2) => task1.entitled.localeCompare(task2.entitled)); 
+  }
+
+  hideClosed(){
+    this.taskList = this.taskList.filter(task => !task.endDate); 
   }
 
   getTasks(){

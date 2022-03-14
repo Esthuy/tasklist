@@ -24,6 +24,7 @@ export class CreateTaskComponent implements OnInit {
   taskToAdd! : Task; 
 
   ngOnInit(): void {
+    this.taskInsertForm.reset(); 
   }
 
 

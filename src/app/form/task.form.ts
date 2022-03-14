@@ -2,7 +2,7 @@ import { AbstractControl, FormControl, ValidationErrors, Validators } from "@ang
 
 
 export const TASK_INSERT_FORM = {
-    'entitled': new FormControl( null, [Validators.required, Validators.minLength(1), Validators.maxLength(30), notBlank]),
+    'entitled': new FormControl(null, [Validators.required, Validators.minLength(1), Validators.maxLength(30), notBlank]),
     'description': new FormControl(null, [Validators.minLength(1), Validators.maxLength(100), notBlank]),
     'creationDate': new FormControl(null, [Validators.required]),
     'deadLine': new FormControl(null),

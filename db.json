@@ -55,15 +55,6 @@
       "description": null
     },
     {
-      "id": 6,
-      "priority": "high",
-      "creationDate": "2020-05-31",
-      "deadLine": "2023-01-15",
-      "endDate": "2023-08-04",
-      "entitled": "est dolore dolore",
-      "description": null
-    },
-    {
       "id": 7,
       "priority": "low",
       "creationDate": "2019-12-07",
@@ -303,7 +294,7 @@
       "creationDate": "2019-03-21",
       "deadLine": "2024-12-11",
       "endDate": null,
-      "entitled": "adipisicing eiusmod reprehenderit",
+      "entitled": "adipisicing eiu reprehenderit",
       "description": "Anim officia elit ex commodo eu nostrud consequat ex cillum nisi."
     },
     {
@@ -9009,8 +9000,5 @@
       "entitled": "irure ipsum Lorem",
       "description": null
     }
-  
   ]
 }
-
-  

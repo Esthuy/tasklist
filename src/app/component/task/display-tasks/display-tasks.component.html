@@ -2,10 +2,16 @@
 
 <ng-container>
     <div>
+      
+        <button (click)="ascendingOrder()">Trié par ordre alphabétique</button>
+        <button (click)="hideClosed()">Masquer les tâches cloturées</button>
+
+        
         <p *ngFor="let task of taskList" >
             <span *ngIf="task.endDate != null"> [Cloturée] </span>
              - {{task.entitled}} - <button (click)="displayTask(task)">Afficher</button>
         </p>
+
     </div>
 </ng-container>
 
