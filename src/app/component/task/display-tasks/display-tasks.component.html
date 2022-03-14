@@ -1,10 +1,13 @@
 <h1>Liste des tâches</h1>
 
+<ng-container>
+    <div>
+        <p *ngFor="let task of taskList" >
+            <span *ngIf="task.endDate != null"> [Cloturée] </span>
+             - {{task.entitled}} - <button (click)="displayTask(task)">Afficher</button>
+        </p>
+    </div>
+</ng-container>
 
-<div>
-    <p *ngFor="let task of taskList" >
-         - {{task.entitled}} - <button (click)="displayTask(task)">Afficher</button>
-    </p>
-</div>
 
 

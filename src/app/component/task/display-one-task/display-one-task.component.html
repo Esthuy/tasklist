@@ -20,6 +20,8 @@
         <p>Priorité : {{task.priority | priority}}</p>
     
     <button (click)="deleteTask(task)">Supprimer</button>
-    <button (click)="modifyTask(task)">Modifier</button>
+    <button *ngIf="task.endDate == null" (click)="modifyTask(task)">Modifier</button>
+    <br>
+    <button (click)="return()">Retour</button>
 </div>
 

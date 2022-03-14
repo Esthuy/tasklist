@@ -28,7 +28,33 @@ export function startBeforeEnd(control: AbstractControl) : ValidationErrors | nu
         return null; 
     }
     return {startBeforeEnd: {
-        message: 'la date de début doit être avant la date de fin'
+        message: 'la date de fin doit être après la date de création'
+        }
+    }
+}
+
+export function endBeforeDeadLine(control: AbstractControl) : ValidationErrors | null {
+    const deadLine = control.value.deadLine; 
+    const end = control.value.endDate; 
+
+    if(end == null || deadLine == null || end <= deadLine) {
+        return null; 
+    }
+    return {endBeforeDeadLine: {
+        message: 'la date de fin doit être avant la deadLine'
+        }
+    }
+}
+
+export function startBeforeDeadLine(control: AbstractControl) : ValidationErrors | null {
+    const deadLine = control.value.deadLine; 
+    const start = control.value.creationDate; 
+
+    if(deadLine == null || start < deadLine) {
+        return null; 
+    }
+    return {startBeforeDeadLine: {
+        message: 'la deadLine doit être après la date de création'
         }
     }
 }

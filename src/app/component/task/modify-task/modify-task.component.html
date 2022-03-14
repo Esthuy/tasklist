@@ -6,6 +6,7 @@
         <label for="task-entitled">Intitulé</label><br>
         <input type="text" id="task-entitled" formControlName="entitled">
         <p *ngIf="taskModifyForm.controls['entitled'].errors?.['required']" class="errors">Ce champ est obligatoire </p>
+        <p *ngIf="taskModifyForm.controls['entitled'].errors?.['maxlength']" class="errors">L'Intitulé ne peut pas dépasser 30 caractères</p>
         <p *ngIf="taskModifyForm.controls['entitled'].errors?.['notBlank']" class="errors"> 
             {{ taskModifyForm.controls['entitled'].errors?.['notBlank'].message }} 
         </p>
@@ -19,6 +20,7 @@
         <p *ngIf="taskModifyForm.controls['description'].errors?.['notBlank']" class="errors"> 
             {{ taskModifyForm.controls['description'].errors?.['notBlank'].message }} 
         </p>
+        <p *ngIf="taskModifyForm.controls['description'].errors?.['maxlength']" class="errors">La description ne peut pas dépasser 100 caractères</p>
     </div>
     <br>
 
@@ -32,6 +34,9 @@
     <div>
         <label for="task-deadLine">DeadLine</label><br>
         <input type="date" id="task-deadLine" formControlName="deadLine">
+        <p *ngIf="taskModifyForm.errors?.['startBeforeDeadLine']" class="errors"> 
+            {{ taskModifyForm.errors?.['startBeforeDeadLine'].message }} 
+        </p>
     </div>
     <br>
 
@@ -40,6 +45,9 @@
         <input type="date" id="task-endDate" formControlName="endDate">
         <p *ngIf="taskModifyForm.errors?.['startBeforeEnd']" class="errors"> 
             {{ taskModifyForm.errors?.['startBeforeEnd'].message }} 
+        </p>
+        <p *ngIf="taskModifyForm.errors?.['endBeforeDeadLine']" class="errors"> 
+            {{ taskModifyForm.errors?.['endBeforeDeadLine'].message }} 
         </p>
     </div>
     <br>
@@ -57,7 +65,8 @@
 
 <br><br>
 
-    <button type="submit">Insérer</button>
+    <button type="submit">Modifier</button>
+    <button (click)="cancel()">Annuler</button>
     <br>
 
 </form>

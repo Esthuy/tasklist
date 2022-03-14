@@ -43,15 +43,14 @@ export class DisplayOneTaskComponent implements OnInit {
     this.router.navigateByUrl('/modifyTask'); 
   }
 
+  return(){
+    this.router.navigateByUrl('/taskList');
+  }
+
 
 
   ngOnInit(): void {
   }
-
- 
-
-
-    
  
 
 }

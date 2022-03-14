@@ -31,6 +31,10 @@ export class TaskService {
     return this.client.delete<Task>(this.url_base+'/'+id); 
   }
 
+  modifyTask(idToModify: number, modifiedTask: Task){
+    return this.client.patch<Task>(this.url_base+'/'+idToModify, modifiedTask); 
+  }
+
   sendTask(task : Task){
     this.taskToModify = task; 
   }

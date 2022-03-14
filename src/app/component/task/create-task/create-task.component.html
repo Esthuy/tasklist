@@ -34,6 +34,9 @@
     <div>
         <label for="task-deadLine">DeadLine</label><br>
         <input type="date" id="task-deadLine" formControlName="deadLine">
+        <p *ngIf="taskInsertForm.errors?.['startBeforeDeadLine']" class="errors"> 
+            {{ taskInsertForm.errors?.['startBeforeDeadLine'].message }} 
+        </p>
     </div>
     <br>
 
@@ -42,6 +45,9 @@
         <input type="date" id="task-endDate" formControlName="endDate">
         <p *ngIf="taskInsertForm.errors?.['startBeforeEnd']" class="errors"> 
             {{ taskInsertForm.errors?.['startBeforeEnd'].message }} 
+        </p>
+        <p *ngIf="taskInsertForm.errors?.['endBeforeDeadLine']" class="errors"> 
+            {{ taskInsertForm.errors?.['endBeforeDeadLine'].message }} 
         </p>
     </div>
     <br>
@@ -60,6 +66,7 @@
 <br><br>
 
     <button type="submit">Insérer</button>
+    <button (click)="cancel()">Annuler</button>
     <br>
 
 </form>
