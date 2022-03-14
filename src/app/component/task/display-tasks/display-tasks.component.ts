@@ -11,29 +11,44 @@ import { TaskService } from 'src/app/service/task.service';
 export class DisplayTasksComponent implements OnInit {
 
   taskList : Task[] = []; 
+  orderStr: string = "asc"; 
+  hidden: boolean = false; 
  
 
   constructor(private service : TaskService, private router : Router) {
     this.getTasks(); 
   }
 
-  ascendingOrder(){
-    this.taskList = this.taskList.sort((task1, task2) => task1.entitled.localeCompare(task2.entitled)); 
+  order(){
+    if(this.orderStr === "desc"){
+      this.taskList = this.taskList.sort((task1, task2) => task2.entitled.localeCompare(task1.entitled)); 
+    } else {
+      this.taskList = this.taskList.sort((task1, task2) => task1.entitled.localeCompare(task2.entitled)); 
+    }
   }
+
 
   hideClosed(){
     this.taskList = this.taskList.filter(task => !task.endDate); 
+    this.hidden = true; 
+  }
+
+  displayClosed(){
+    this.getTasks(); 
+    this.hidden = false; 
   }
 
   getTasks(){
     this.service.getTasks()
     .subscribe({
       next: tasks => this.taskList = tasks,
+      complete: () => this.order(),
       error: err => alert("echec"),
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
+    this.getTasks(); 
   }
 
   displayTask(task : Task){

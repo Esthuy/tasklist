@@ -7,7 +7,7 @@ export const TASK_INSERT_FORM = {
     'creationDate': new FormControl(null, [Validators.required]),
     'deadLine': new FormControl(null),
     'endDate': new FormControl(null),
-    'priority': new FormControl(null, [Validators.required])
+    'priority': new FormControl('low', [Validators.required])
 };
 
 //Vérifie que l'entrée n'est pas vide

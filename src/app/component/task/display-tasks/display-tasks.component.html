@@ -2,9 +2,16 @@
 
 <ng-container>
     <div>
+
+        <label>Trier par :</label>
+        <select [(ngModel)]="orderStr" (change)="order()">
+            <option value="asc">a-z</option>
+            <option value="desc">z-a</option>
+        </select>
       
-        <button (click)="ascendingOrder()">Trié par ordre alphabétique</button>
-        <button (click)="hideClosed()">Masquer les tâches cloturées</button>
+        <br><br>
+        <button *ngIf="!hidden" (click)="hideClosed()">Masquer les tâches cloturées</button>
+        <button *ngIf="hidden" (click)="displayClosed()">Afficher les tâches cloturées</button>
 
         
         <p *ngFor="let task of taskList" >

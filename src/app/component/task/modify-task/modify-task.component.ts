@@ -34,14 +34,11 @@ export class ModifyTaskComponent implements OnInit {
     if(this.taskModifyForm.valid){
       this.modifiedTask = this.taskModifyForm.value; 
       this.service.modifyTask(this.taskToModify.id, this.modifiedTask).subscribe(() => {
-        this.taskModifyForm.reset(); 
         this.router.navigateByUrl('/taskList')}); 
-      
     }
   }; 
 
   cancel(){
-    this.taskModifyForm.reset(); 
     this.router.navigateByUrl('/taskList'); 
   }
 

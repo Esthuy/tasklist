@@ -24,7 +24,9 @@ export class CreateTaskComponent implements OnInit {
   taskToAdd! : Task; 
 
   ngOnInit(): void {
-    this.taskInsertForm.reset(); 
+    this.taskInsertForm.reset({
+      priority : "low"
+    }); 
   }
 
 
@@ -32,12 +34,16 @@ export class CreateTaskComponent implements OnInit {
     if(this.taskInsertForm.valid){
       this.taskToAdd = this.taskInsertForm.value; 
       this.service.createTask(this.taskToAdd).subscribe(() => this.router.navigateByUrl('/taskList')); 
-      this.taskInsertForm.reset(); 
+      this.taskInsertForm.reset({
+        priority : "low"
+      }); 
     }
   }; 
 
 
   cancel(){
-    this.taskInsertForm.reset(); 
+    this.taskInsertForm.reset({
+      priority : "low"
+    }); 
   }
 }
