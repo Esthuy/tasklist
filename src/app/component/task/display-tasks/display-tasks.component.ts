@@ -11,7 +11,12 @@ import { TaskService } from 'src/app/service/task.service';
 export class DisplayTasksComponent implements OnInit {
 
   taskList : Task[] = []; 
+
+  tasktoDisplay : Task[] = [];
+
   orderStr: string = "asc"; 
+  toSearch!: string; 
+
   hidden: boolean = false; 
  
 
@@ -21,28 +26,46 @@ export class DisplayTasksComponent implements OnInit {
 
   order(){
     if(this.orderStr === "desc"){
-      this.taskList = this.taskList.sort((task1, task2) => task2.entitled.localeCompare(task1.entitled)); 
+      this.tasktoDisplay = this.taskList.sort((task1, task2) => task2.entitled.localeCompare(task1.entitled)); 
+      if (this.hidden){
+        this.hideClosed();
+      }else {
+        this.displayClosed(); 
+      }
     } else {
-      this.taskList = this.taskList.sort((task1, task2) => task1.entitled.localeCompare(task2.entitled)); 
+      this.tasktoDisplay = this.taskList.sort((task1, task2) => task1.entitled.localeCompare(task2.entitled)); 
+      if (this.hidden){
+        this.hideClosed();
+      }else {
+        this.displayClosed(); 
+      }
     }
   }
 
 
   hideClosed(){
-    this.taskList = this.taskList.filter(task => !task.endDate); 
+    this.tasktoDisplay = this.tasktoDisplay.filter(task => !task.endDate); 
     this.hidden = true; 
   }
 
   displayClosed(){
-    this.getTasks(); 
+    this.tasktoDisplay = this.taskList; 
     this.hidden = false; 
+  }
+
+  search(){
+    this.tasktoDisplay = this.taskList.filter(task => task.entitled.includes(this.toSearch)); 
+    if (this.hidden){
+      this.hideClosed();
+    }
+    this.toSearch = ""; 
   }
 
   getTasks(){
     this.service.getTasks()
     .subscribe({
       next: tasks => this.taskList = tasks,
-      complete: () => this.order(),
+      complete: () => {this.order(), this.tasktoDisplay = this.taskList}, 
       error: err => alert("echec"),
     });
   }

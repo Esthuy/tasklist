@@ -8,13 +8,18 @@
             <option value="asc">a-z</option>
             <option value="desc">z-a</option>
         </select>
+
+        <br><br>
+        <label>Intitulé : </label>
+        <input type="text" [(ngModel)]="toSearch">
+        <button (click)="search()">chercher</button>
       
         <br><br>
         <button *ngIf="!hidden" (click)="hideClosed()">Masquer les tâches cloturées</button>
         <button *ngIf="hidden" (click)="displayClosed()">Afficher les tâches cloturées</button>
 
-        
-        <p *ngFor="let task of taskList" >
+        <br><br>
+        <p *ngFor="let task of tasktoDisplay" >
             <span *ngIf="task.endDate != null"> [Cloturée] </span>
              - {{task.entitled}} - <button (click)="displayTask(task)">Afficher</button>
         </p>
