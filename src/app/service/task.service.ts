@@ -1,14 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Task } from '../model/task.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
-
-  private taskList : Task[] = []; 
 
   private taskToModify! : Task; 
 
@@ -26,6 +24,7 @@ export class TaskService {
 
   createTask(task: Task){
     return this.client.post<Task>(this.url_base, task);  
+   
   }
 
   deleteTask(id : number){

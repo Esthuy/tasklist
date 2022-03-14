@@ -6,6 +6,7 @@
         <label for="task-entitled">Intitulé</label><br>
         <input type="text" id="task-entitled" formControlName="entitled">
         <p *ngIf="taskInsertForm.controls['entitled'].errors?.['required']" class="errors">Ce champ est obligatoire </p>
+        <p *ngIf="taskInsertForm.controls['entitled'].errors?.['maxlength']" class="errors">L'Intitulé ne peut pas dépasser 30 caractères</p>
         <p *ngIf="taskInsertForm.controls['entitled'].errors?.['notBlank']" class="errors"> 
             {{ taskInsertForm.controls['entitled'].errors?.['notBlank'].message }} 
         </p>
@@ -19,6 +20,7 @@
         <p *ngIf="taskInsertForm.controls['description'].errors?.['notBlank']" class="errors"> 
             {{ taskInsertForm.controls['description'].errors?.['notBlank'].message }} 
         </p>
+        <p *ngIf="taskInsertForm.controls['description'].errors?.['maxlength']" class="errors">La description ne peut pas dépasser 100 caractères</p>
     </div>
     <br>
 
