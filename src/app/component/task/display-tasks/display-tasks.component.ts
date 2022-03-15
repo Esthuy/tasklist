@@ -40,41 +40,53 @@ export class DisplayTasksComponent implements OnInit {
       this.tasktoDisplay = this.taskList.sort((task1, task2) => task1.entitled.localeCompare(task2.entitled)); 
     }
 
-    if (this.hidden){
-      this.tasktoDisplay = this.tasktoDisplay.filter(task => !task.endDate);
-    }
-
+    this.ifHidden(); 
+    this.ifSearch(); 
     this.pagination(); 
   }
 
 
+  //Hide closed task
   hideClosed(){
-    this.tasktoDisplay = this.taskList.filter(task => !task.endDate); 
-    if(this.toSearch !== "" && this.toSearch != undefined){
-      this.tasktoDisplay = this.tasktoDisplay.filter(task => task.entitled.includes(this.toSearch)); 
-    }
     this.hidden = true; 
+
+    this.tasktoDisplay = this.taskList.filter(task => !task.endDate); 
+
+    this.ifSearch(); 
     this.pagination(); 
   }
 
+  //Display closed task 
   displayClosed(){
-    this.tasktoDisplay = this.taskList; 
-    if(this.toSearch !== "" && this.toSearch != undefined){
-      this.tasktoDisplay = this.tasktoDisplay.filter(task => task.entitled.includes(this.toSearch)); 
-    }
     this.hidden = false; 
+
+    this.tasktoDisplay = this.taskList; 
+
+    this.ifSearch(); 
     this.pagination(); 
   }
 
+  //Search for a string in the tasks 
   search(){
     this.tasktoDisplay = this.taskList.filter(task => task.entitled.includes(this.toSearch));
     
-    if (this.hidden){
-      this.tasktoDisplay = this.tasktoDisplay.filter(task => !task.endDate);
-    }
+    this.ifHidden(); 
     this.pagination(); 
   }
 
+  //Check if hidden button is activated 
+  ifHidden(){
+    if (this.hidden){
+      this.tasktoDisplay = this.tasktoDisplay.filter(task => !task.endDate);
+    }
+  }
+
+  //Check if a search is on 
+  ifSearch(){
+    if(this.toSearch !== "" && this.toSearch != undefined){
+      this.tasktoDisplay = this.tasktoDisplay.filter(task => task.entitled.includes(this.toSearch)); 
+    }
+  }
 
 
   getTasks(){
@@ -115,25 +127,24 @@ export class DisplayTasksComponent implements OnInit {
 
     this.changed = false; 
 
-  
-    if(this.hidden){
-
-        this.tasktoDisplay = this.taskList.filter(task => !task.endDate);
-        this.length = this.tasktoDisplay.length;
-        this.tasktoDisplay = this.tasktoDisplay.slice(firstCut, secondCut); 
-        this.changed= true; 
-    } 
 
     if(this.toSearch !== "" && this.toSearch != undefined){
 
         this.tasktoDisplay = this.taskList.filter(task => task.entitled.includes(this.toSearch)); 
-          if(this.hidden){
-            this.tasktoDisplay = this.tasktoDisplay.filter(task => !task.endDate);
-          }
+        this.ifHidden(); 
         this.length = this.tasktoDisplay.length;
         this.tasktoDisplay = this.tasktoDisplay.slice(firstCut, secondCut);
         this.changed = true; 
+        
     }
+
+    if(this.hidden && !this.changed){
+
+      this.tasktoDisplay = this.taskList.filter(task => !task.endDate);
+      this.length = this.tasktoDisplay.length;
+      this.tasktoDisplay = this.tasktoDisplay.slice(firstCut, secondCut); 
+      this.changed= true; 
+    } 
 
     if (!this.changed) {
         this.tasktoDisplay = this.taskList.slice(firstCut, secondCut); 
