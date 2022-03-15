@@ -59,6 +59,9 @@ export class DisplayTasksComponent implements OnInit {
 
   displayClosed(){
     this.tasktoDisplay = this.taskList; 
+    if(this.toSearch !== "" && this.toSearch != undefined){
+      this.tasktoDisplay = this.tasktoDisplay.filter(task => task.entitled.includes(this.toSearch)); 
+    }
     this.hidden = false; 
     this.pagination(); 
   }
@@ -113,29 +116,28 @@ export class DisplayTasksComponent implements OnInit {
     this.changed = false; 
 
   
-  if(this.hidden){
+    if(this.hidden){
 
-      this.tasktoDisplay = this.taskList.filter(task => !task.endDate);
-      this.length = this.tasktoDisplay.length;
-      this.tasktoDisplay = this.tasktoDisplay.slice(firstCut, secondCut); 
-      this.changed= true; 
-      
-  } 
+        this.tasktoDisplay = this.taskList.filter(task => !task.endDate);
+        this.length = this.tasktoDisplay.length;
+        this.tasktoDisplay = this.tasktoDisplay.slice(firstCut, secondCut); 
+        this.changed= true; 
+    } 
 
-  if(this.toSearch !== "" && this.toSearch != undefined){
+    if(this.toSearch !== "" && this.toSearch != undefined){
 
-      this.tasktoDisplay = this.taskList.filter(task => task.entitled.includes(this.toSearch)); 
-        if(this.hidden){
-          this.tasktoDisplay = this.tasktoDisplay.filter(task => !task.endDate);
-        }
-      this.length = this.tasktoDisplay.length;
-      this.tasktoDisplay = this.tasktoDisplay.slice(firstCut, secondCut);
-      this.changed = true; 
-  
-  }
-    if (this.changed == false) {
-    this.tasktoDisplay = this.taskList.slice(firstCut, secondCut); 
-  }
+        this.tasktoDisplay = this.taskList.filter(task => task.entitled.includes(this.toSearch)); 
+          if(this.hidden){
+            this.tasktoDisplay = this.tasktoDisplay.filter(task => !task.endDate);
+          }
+        this.length = this.tasktoDisplay.length;
+        this.tasktoDisplay = this.tasktoDisplay.slice(firstCut, secondCut);
+        this.changed = true; 
+    }
+
+    if (!this.changed) {
+        this.tasktoDisplay = this.taskList.slice(firstCut, secondCut); 
+    }
   }
 
 
