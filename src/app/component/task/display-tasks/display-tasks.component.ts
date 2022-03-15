@@ -33,6 +33,7 @@ export class DisplayTasksComponent implements OnInit {
     this.getTasks(); 
   }
 
+  //order the list
   order(){
     if(this.orderStr === "desc"){
       this.tasktoDisplay = this.taskList.sort((task1, task2) => task2.entitled.localeCompare(task1.entitled)); 
