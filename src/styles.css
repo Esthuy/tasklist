@@ -1,3 +1,7 @@
+
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+
 body{
     font-family: Verdana, Tahoma, sans-serif;
     text-align: center;
@@ -8,3 +12,9 @@ button{
     color: white; 
     font-size: 0.4cm;
 }
+
+html, body { height: 100%; }
+
+body { margin: 0; 
+       font-family: Roboto, 
+       "Helvetica Neue", sans-serif; }

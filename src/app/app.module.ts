@@ -11,6 +11,8 @@ import { DisplayOneTaskComponent } from './component/task/display-one-task/displ
 import { PriorityPipe } from './pipe/priority.pipe';
 import { NullPipe } from './pipe/null.pipe';
 import { ModifyTaskComponent } from './component/task/modify-task/modify-task.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ModifyTaskComponent } from './component/task/modify-task/modify-task.co
     AppRoutingModule, 
     HttpClientModule , 
     FormsModule, 
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
+    BrowserAnimationsModule, 
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
