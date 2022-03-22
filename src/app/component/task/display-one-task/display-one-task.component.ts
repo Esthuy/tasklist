@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { catchError, Observable, of } from 'rxjs';
 import { Task } from 'src/app/model/task.model';
 import { TaskService } from 'src/app/service/task.service';
 
@@ -12,6 +13,7 @@ export class DisplayOneTaskComponent implements OnInit {
 
   id: number;
   task!: Task; 
+  $task : Observable<Task>; 
 
 
   constructor(  
@@ -21,12 +23,20 @@ export class DisplayOneTaskComponent implements OnInit {
 
     const param_id = route.snapshot.paramMap.get('id');
     this.id = param_id ? parseInt(param_id) : -1;
+    this.$task = service.getOneTask(this.id).pipe(
+      catchError((err) => {
+        router.navigateByUrl("taskList"); 
+        return of(); 
+      })
+    )
+    
+    //Vieille version sans pipe 
 
-    if( this.id && this.id > 0 )
-      service.getOneTask(this.id).subscribe({
-        next: (task) => this.task = task,
-        error: (err) => router.navigateByUrl('/taskList')
-      }); 
+    // if( this.id && this.id > 0 )
+    //   service.getOneTask(this.id).subscribe({
+    //     next: (task) => this.task = task,
+    //     error: (err) => router.navigateByUrl('/taskList')
+    //   }); 
     }
 
 

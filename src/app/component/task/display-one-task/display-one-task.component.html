@@ -4,7 +4,7 @@
     </div>
 </ng-template>
 
-<div *ngIf="task; else loading">
+<div *ngIf="$task | async as task ; else loading">
     <h3>Detail de la tache "{{task.entitled}}"</h3>
     
         <p>Intitulé : {{task.entitled}}</p>
