@@ -1,7 +1,7 @@
 # Tasklist
 This is a small project on angular with a json database.
 
-It's a tasklist that allow you to add a new task, display the list (with pagination, order, a searsh bar and the option to hide closed tasks) or to diplay a single task (and to delete or modify it). 
+It's a task list that allow you to add a new task, display the list (with pagination, order, a searsh bar and the option to hide closed tasks) or to diplay a single task (and to delete or modify it). 
 
 ## Development server
 
