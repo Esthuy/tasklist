@@ -10,7 +10,7 @@ export const TASK_INSERT_FORM = {
     'priority': new FormControl('low', [Validators.required])
 };
 
-//Vérifie que l'entrée n'est pas vide
+
 function notBlank(control : AbstractControl) : ValidationErrors | null {
     if( control.value == null || control.value == "" || control.value && control.value.trim() != "") 
         return null; 
