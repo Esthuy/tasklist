@@ -12,7 +12,9 @@ export class TaskService {
 
   constructor(private client: HttpClient) { }
 
-  private readonly url_base = "http://localhost:3000/tasks"; 
+  // private readonly url_base = "http://localhost:3000/tasks"; 
+  private readonly url_base = "https://my-json-server.typicode.com/Esthuy/tasklist/tasks"; 
+
 
   getTasks() : Observable<Task[]>{
     return this.client.get<Task[]>(this.url_base);
