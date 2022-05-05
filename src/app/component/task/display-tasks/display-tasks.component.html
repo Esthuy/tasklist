@@ -18,7 +18,7 @@
         <button *ngIf="!hidden" (click)="hideClosed()">Masquer les tâches cloturées</button>
         <button *ngIf="hidden" (click)="displayClosed()">Afficher les tâches cloturées</button>
 
-        <br><br>
+        <br><br><br><br>
         <p *ngFor="let task of tasktoDisplay" >
             <span *ngIf="task.endDate != null"> [Cloturée] </span>
              - {{task.entitled}} - <button (click)="displayTask(task)">Afficher</button>
