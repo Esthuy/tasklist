@@ -3,6 +3,10 @@ This is a small project on angular with a json database.
 
 It's a task list that allow you to add a new task, display the list (with pagination, order, a searsh bar and the option to hide closed tasks) or to diplay a single task (and to delete or modify it). 
 
+## Get started
+
+Install your dependencies with `npm install` and then run your db with `json-server --watch db.json`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
